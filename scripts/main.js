@@ -33,6 +33,8 @@ window.addEventListener("beforeunload", (event) => {
 });
 */
 
+//учимся делать коммиты 4
+
 async function PostFunction(message) {
     //alert(message);
     //console.log("ddddd"); //это вывод в консоль браузера, не стреды разработки
