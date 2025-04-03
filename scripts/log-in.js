@@ -3,6 +3,8 @@ const login = document.getElementById('login-in');
 const password = document.getElementById('password-in');
 const error_div = document.getElementById('errorMessage');
 
+//учимся делать коммиты
+
 form.addEventListener('submit', (e) => {
 
     let pair = new Object();  //собрать данные для отправки
