@@ -4,6 +4,7 @@ const password = document.getElementById('password-in');
 const error_div = document.getElementById('errorMessage');
 
 //учимся делать коммиты
+//Учимся делать коммиты 2
 
 form.addEventListener('submit', (e) => {
 
