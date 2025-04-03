@@ -3,9 +3,7 @@ const login = document.getElementById('login-in');
 const password = document.getElementById('password-in');
 const error_div = document.getElementById('errorMessage');
 
-//учимся делать коммиты
-//Учимся делать коммиты 2
-//Учимся делать коммиты 3
+//учимся делать новые ветки
 
 form.addEventListener('submit', (e) => {
 
