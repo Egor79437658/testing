@@ -15,28 +15,33 @@ form.addEventListener('submit', (e) => {
     let jsonanswer = tempCheckLoginAndPassword(jsonstr);
     let answer = JSON.parse(jsonanswer); //ответ от сервера
 
-    //let answer = checkLoginAndPassword(jsonstr); 
+    //let answer = PostFunction(jsonstr); 
 
     alert(jsonanswer);
-    if(answer.code === '0') { //если все хорошо
+    if(answer.status === 'Correct') { //если все хорошо
         sessionStorage.setItem('GlobalLogin', login.value);
-        sessionStorage.setItem('GlobalLevel', answer.level);
-        sessionStorage.setItem("GlobalRedirect", true);
-        e.preventDefault();    
-        if(answer.checked === 'false') {
-            window.location.assign("rules-of-usage.html");
+        sessionStorage.setItem('GlobalLevel', answer.privilege);
+        //sessionStorage.setItem("GlobalRedirect", true);
+        e.preventDefault();  
+        if(answer.access === 'true'){  
+            if(answer.agreement === 'false') {
+                window.location.assign("rules-of-usage.html");
+            }
+            else{
+                window.location.assign("data-from-user.html");
+            }
         }
-        else{
-            window.location.assign("data-from-user.html");
+        else {
+            error_div.innerText = "Доступ закончился";
+            e.preventDefault();
         }
-        
 
     }
-    else if (answer.code === '1'){
+    else if (answer.status === 'User not found'){
         error_div.innerText = "Неправильный логин";
         e.preventDefault();
     }
-    else if (answer.code === '2'){
+    else if (answer.status === 'Incorrect password'){
         error_div.innerText = "Неправильный пароль";
         e.preventDefault();
     }
@@ -51,6 +56,7 @@ twoInputs.forEach(input => { //стереть сообщение об ошибк
     })
 })
 
+/*
 async function checkLoginAndPassword(jsonstr){
     //alert(jsonstr); //вывод в браузер что передается
 
@@ -79,36 +85,46 @@ async function checkLoginAndPassword(jsonstr){
         console.error('Login error:', error);
         alert("Error");
       }
-}
+} */
 
 function tempCheckLoginAndPassword(jsonstr){
     alert(jsonstr);
     return tempFunction(jsonstr);
 }
 
-function tempFunction(jsonstr) {
+function tempFunction(jsonstr) { // 123 123 - user без согласияб 321 321 - admin с согласием, 222 222 - доступ кончился по времени
     let temp = JSON.parse(jsonstr);
     let obj = new Object();
     if (temp.login === '123' && temp.password === '123') {
-        obj.code = '0';
-        obj.level = '1';
-        obj.checked = 'false';
+        obj.status = 'Correct';
+        obj.privilege = 'user';
+        obj.agreement = 'false';
+        obj.access = 'true';
     }
     else if (temp.login === '321' && temp.password === '321') {
-        obj.code = '0';
-        obj.level = '2';
-        obj.checked = 'true';
+        obj.status = 'Correct';
+        obj.privilege = 'admin';
+        obj.agreement = 'true';
+        obj.access = 'true';
+    }
+    else if (temp.login === '222' && temp.password === '222'){
+        obj.status = 'Correct';
+        obj.privilege = 'user';
+        obj.agreement = 'true';
+        obj.access = 'false';
     }
     else if (temp.login !== '321' && temp.login !== '123'){
-        obj.code = '1';
-        obj.level = '';
-        obj.checked = '';
+        obj.status = 'User not found';
+        obj.privilege = 'user';
+        obj.agreement = 'false';
+        obj.access = 'false';
     }
 
     else if (temp.password !== '321' && temp.password !== '123'){
-        obj.code = '2';
-        obj.level = '';
-        obj.checked = '';
+        obj.status = 'Incorrect password';
+        obj.privilege = 'user';
+        obj.agreement = 'false';
+        obj.access = 'false';
     }
 
     return JSON.stringify(obj);
