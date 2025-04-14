@@ -1,33 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Interactive Table</title>
-  <link rel="stylesheet" href="../styles/style.css">
-</head>
-<body>
-    <h1>Interactive Table</h1>
-    <input type="file" id="excelFile" accept=".xlsx" />
-    <table id="dataTable">
-      <thead>
-        <tr>
-          <th></th> <!-- Drag handle -->
-          <th>Column 1</th>
-          <th>Column 2</th>
-          <th>Column 3</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <!-- Rows will be added dynamically -->
-      </tbody>
-    </table>
-    <button id="addRowBtn">+</button>
+<!doctype html>
+<html lang="ru">
+  <head>
+    <title>AG-Grid Table with Icons</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet">
+  
+    <style>
+      :root, body {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        box-sizing: border-box;
+        -webkit-overflow-scrolling: touch;
+        font-family: 'IBM Plex Sans', sans-serif;
+      }
+    </style>
+    <link rel="stylesheet" href="../styles/table.css"/>
+  </head>
+  <body>
+    <div id="gridContainer">
+      <div class="ag-grid-toolbar">
+        <button class="toolbar-btn" id="insertRowsBtn" title="Вставить строки">
+          <span class="material-icons">playlist_add</span>
+        </button>
+        
+        <button class="toolbar-btn" id="deleteRowsBtn" title="Удалить строки">
+          <span class="material-icons">delete</span>
+        </button>
+        
+        <button class="toolbar-btn" id="undoBtn" title="Отменить (Ctrl+Z)">
+          <span class="material-icons">undo</span>
+        </button>
+        <button class="toolbar-btn" id="redoBtn" title="Вернуть (Ctrl+Y)">
+          <span class="material-icons">redo</span>
+        </button>
 
-  <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-  <script src="../scripts/main.js"></script>
-</body>
-</html>
+
+        <div style="flex-grow: 1"></div>
+        
+        <button class="toolbar-btn" id="saveSelectedBtn" title="Сохранить выбранные">
+          <span class="material-icons">save</span>
+          <span id="selectedCount" style="margin-left: 5px; font-size: 14px;">0</span>
+        </button>
+        
+        <button class="toolbar-btn" id="saveAllBtn" title="Сохранить всю таблицу">
+          <span class="material-icons">drafts</span>
+        </button>
+      </div>
+      
+      <div id="myGrid" class="ag-theme-alpine" style="height: calc(100% - 50px);"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/ag-grid-community@33.2.3/dist/ag-grid-community.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/ag-grid-enterprise@33.2.3/dist/ag-grid-enterprise.min.js?t=1744362087726"></script> <!--Новый скрипт-->
+    <script src="../scripts/tableTemp.js"></script>
+  </body>
 </html>
