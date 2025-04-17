@@ -1,69 +1,4 @@
-.grid-control-button {
-  padding: 8px 16px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 14px;
-  transition: all 0.3s;
-}
 
-.save-button {
-  background-color: #4CAF50;
-  color: white;
-}
-
-.save-button:hover {
-  background-color: #45a049;
-}
-
-.save-button:disabled {
-  background-color: #cccccc;
-  cursor: not-allowed;
-}
-
-.ag-grid-delete-button {
-  background-color: #ff4444;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 3px;
-  cursor: pointer;
-}
-
-.ag-grid-insert-button {
-  background-color: #2196F3;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 3px;
-  cursor: pointer;
-}
-
-.ag-grid-insert-button:hover {
-  background-color: #0b7dda;
-}
-
-.ag-theme-alpine .ag-row-selected {
-  background-color: rgba(33, 150, 243, 0.3) !important;
-}
-
-.save-all-button {
-  background-color: #2196F3;
-  color: white;
-}
-
-.save-all-button:hover {
-  background-color: #0b7dda;
-}
-
-/* Draggable row style */
-.ag-theme-alpine .ag-row-drag {
-  cursor: move;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-}
 /* Стиль для выделенных ячеек */
 .ag-theme-alpine .ag-cell-range-selected {
 background-color: rgba(100, 149, 237, 0.4) !important;
@@ -149,5 +84,5 @@ color: #999;
 }
 
 .ag-row-selected {
-background-color: #ce1414 !important; /* Light blue background */
+background-color: #46a4db !important; /* Light blue background */
 }

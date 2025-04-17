@@ -180,18 +180,18 @@ const gridOptions = {
             headerName: "",
             width: 50,
             rowDrag: true,
-            cellClass: 'ag-selection-checkbox',
-            cellClassRules: {
-                // This will apply the row-selected class to the entire row when checkbox is checked
-                'ag-row-selected': params => params.data.isChosen
-            },
-            onCellValueChanged: params => {
-                // Refresh the row to apply the class changes
-                params.api.refreshCells({
-                    rowNodes: [params.node],
-                    force: true
-                });
-            }
+            //cellClass: 'ag-selection-checkbox',
+            // cellClassRules: {
+            //     // This will apply the row-selected class to the entire row when checkbox is checked
+            //     'ag-row-selected': params => params.data.isChosen
+            // },
+            // onCellValueChanged: params => {
+            //     // Refresh the row to apply the class changes
+            //     params.api.refreshCells({
+            //         rowNodes: [params.node],
+            //         force: true
+            //     });
+            // }
         },
         {
             field: "name",
@@ -232,15 +232,15 @@ const gridOptions = {
       } else {event.node.setSelected(true);}
       },
 
-    onCellEditingStopped: (event) => {
-        // Handle checkbox changes
-        if (event.colDef.field === 'isChosen') {
-            event.api.refreshCells({
-                rowNodes: [event.node],
-                force: true
-            });
-        }
-    }
+    // onCellEditingStopped: (event) => {
+    //     // Handle checkbox changes
+    //     if (event.colDef.field === 'isChosen') {
+    //         event.api.refreshCells({
+    //             rowNodes: [event.node],
+    //             force: true
+    //         });
+    //     }
+    // }
 };
 
 
