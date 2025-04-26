@@ -1,88 +1,33 @@
+body { font-family: Arial, sans-serif; padding: 20px; }
+#matrix-container { margin-top: 20px; overflow: auto; }
 
-/* Стиль для выделенных ячеек */
-.ag-theme-alpine .ag-cell-range-selected {
-background-color: rgba(100, 149, 237, 0.4) !important;
-border: 1px solid #6495ED !important;
+.pvtColLabel {
+    background-color: #53e153 !important;
 }
+.pvtRowLabel { background-color: #49d0d0 !important; }
 
-/* Стиль для чекбоксов выделения строк */
-.ag-theme-alpine .ag-selection-checkbox {
-margin-left: 8px;
+/* Editable cell styles */
+.editable-cell {
+  cursor: pointer;
+  transition: background-color 0.2s;
 }
-.ag-theme-alpine {
---ag-range-selection-border-color: #4CAF50;
---ag-range-selection-border-style: dashed;
---ag-range-selection-background-color: rgba(76, 175, 80, 0.2);
+.editable-cell:hover {
+  background-color: #f0f0f0 !important;
 }
-.toolbar-group {
-display: flex;
-gap: 8px;
-align-items: center;
+.cell-edit-input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: transparent;
+  text-align: center;
+  font-size: inherit;
+  padding: 5px;
 }
-
-.toolbar-btn:disabled {
-opacity: 0.5;
-cursor: not-allowed;
-}
-
-.toolbar-btn:disabled .material-icons {
-color: #999;
-}
-.ag-grid-toolbar {
-display: flex;
-gap: 8px;
-padding: 10px 15px;
-background: #f5f5f5;
-border-radius: 4px 4px 0 0;
-border: 1px solid #ddd;
-margin-bottom: -1px;
+.cell-edit-input:focus {
+  outline: 2px solid transparent;
 }
 
-.toolbar-btn {
-background: none;
-border: none;
-cursor: pointer;
-padding: 8px;
-border-radius: 4px;
-transition: all 0.2s;
-display: flex;
-align-items: center;
-justify-content: center;
-}
-
-.toolbar-btn:hover {
-background: #e0e0e0;
-}
-
-.toolbar-btn .material-icons {
-font-size: 24px;
-color: #555;
-}
-
-.toolbar-btn.active {
-background: #e0e0e0;
-box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
-}
-
-#gridContainer {
-padding: 20px;
-height: calc(100% - 40px);
-}
-.toolbar-group {
-display: flex;
-gap: 8px;
-align-items: center;
-}
-
-.toolbar-btn:disabled {
-opacity: 0.5;
-cursor: not-allowed;
-}
-
-.toolbar-btn:disabled .material-icons {
-color: #999;
-}
-
-.ag-row-selected {
-background-color: #46a4db !important; /* Light blue background */
+.pvtTable td.zero-total {
+  background-color: #ff6b6b !important;
+  color: white !important;
 }

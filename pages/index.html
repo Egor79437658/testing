@@ -1,62 +1,18 @@
-<!doctype html>
-<html lang="ru">
-  <head>
-    <title>AG-Grid Table with Icons</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="robots" content="noindex" />
-    
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet">
-  
-    <style>
-      :root, body {
-        height: 100%;
-        width: 100%;
-        margin: 0;
-        box-sizing: border-box;
-        -webkit-overflow-scrolling: touch;
-        font-family: 'IBM Plex Sans', sans-serif;
-      }
-    </style>
-    <link rel="stylesheet" href="../styles/table.css"/>
-  </head>
-  <body>
-    <div id="gridContainer">
-      <div class="ag-grid-toolbar">
-        <button class="toolbar-btn" id="insertRowsBtn" title="Вставить строки">
-          <span class="material-icons">playlist_add</span>
-        </button>
-        
-        <button class="toolbar-btn" id="deleteRowsBtn" title="Удалить строки">
-          <span class="material-icons">delete</span>
-        </button>
-        
-        <button class="toolbar-btn" id="undoBtn" title="Отменить (Ctrl+Z)">
-          <span class="material-icons">undo</span>
-        </button>
-        <button class="toolbar-btn" id="redoBtn" title="Вернуть (Ctrl+Y)">
-          <span class="material-icons">redo</span>
-        </button>
-
-
-        <div style="flex-grow: 1"></div>
-        
-        <button class="toolbar-btn" id="saveSelectedBtn" title="Сохранить выбранные">
-          <span class="material-icons">save</span>
-          <span id="selectedCount" style="margin-left: 5px; font-size: 14px;">0</span>
-        </button>
-        
-        <button class="toolbar-btn" id="saveAllBtn" title="Сохранить всю таблицу">
-          <span class="material-icons">drafts</span>
-        </button>
-      </div>
-      
-      <div id="myGrid" class="ag-theme-alpine" style="height: calc(100% - 50px);"></div>
-    </div>
-
-    <script src="../ag-grid/ag-grid-community.min.js?t=1744362097518"></script>
-    <script src="https://cdn.jsdelivr.net/npm/ag-grid-enterprise@33.2.3/dist/ag-grid-enterprise.min.js?t=1744362087726"></script> <!--Новый скрипт-->
-    <script src="../scripts/tableTemp.js"></script>
-  </body>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Матрица соответствия</title>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pivottable/2.23.0/pivot.min.css">
+  <link rel="stylesheet" href="../styles/table.css">
+</head>
+<body>
+  <h2>Матрица соответствия</h2>
+  <div id="pivotContainer"></div>
+  <button id="transposeBtn">Транспонировать</button>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pivottable/2.23.0/pivot.min.js"></script>
+  <script src="../scripts/tableTemp.js"></script>
+</body>
 </html>
